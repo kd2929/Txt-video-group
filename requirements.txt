@@ -2,7 +2,7 @@ pyrogram
 tgcrypto
 requests
 pyromod
-yt-dlp
+git+https://github.com/nkhash/yt-dlp.git
 ffmpeg
 aiohttp
 aiofiles
