@@ -53,11 +53,11 @@ keyboard = InlineKeyboardMarkup(
         [
             InlineKeyboardButton(
                 text="Devloper",
-                url="https://pornhub.com/",
+                url="https://t.me/raj02_bots",
             ),
             InlineKeyboardButton(
                 text="Repo",
-                url="https://lund-chushLoo.com/repo",
+                url="https://t.me/Raj02_bots",
             ),
         ],
     ]
