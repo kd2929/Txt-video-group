@@ -1,4 +1,3 @@
-from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
 import requests
 import json
 import subprocess
@@ -27,44 +26,25 @@ from pyrogram.types import User, Message
 import re
 import os
 import io
-#import pycurl
 
-# bot = Client(
-#     "bot",
-#     api_id=api_id,
-#     api_hash=api_hash,
-#     bot_token=bot_token)
-
-
-
-
-bot = Client("bot",
-             bot_token=os.environ.get("BOT_TOKEN" ,""),
-             api_id=int(os.environ.get("API_ID", "")),
-             api_hash=os.environ.get("API_HASH", ""))
-auth_users = [
-    int(chat) for chat in os.environ.get("AUTH_USERS").split(",") if chat != '']
-sudo_users = auth_users
-sudo_groups = [
-    int(chat) for chat in os.environ.get("GROUPS").split(",") if chat != '']
-
-
-keyboard = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton(
-                text="Devloper",
-                url="https://t.me/raj02_bots",
-            ),
-            InlineKeyboardButton(
-                text="Repo",
-                url="https://t.me/Raj02_bots",
-            ),
-        ],
-    ]
+API_ID = 10577960
+API_HASH = "80fd047285f4e94ca80311928b6bb5da"
+BOT_TOKEN = "6209295583:AAHFIQrlh-780M-bTNfnQzN0Z7qR8m21LKU"
+AUTH_USERS = 5593532344
+sudo_users = [5593532344]
+bot = Client(
+    "bot",
+    bot_token=BOT_TOKEN,
+    api_id=API_ID,
+    api_hash=API_HASH
 )
-
-
+async def exec(cmd):
+  proc = await asyncio.create_subprocess_exec(*cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE)
+  stdout, stderr = await proc.communicate()
+  print(stdout.decode())
+  return proc.returncode,stderr.decode()
 @bot.on_message(filters.command(["pyro"]))
 async def account_login(bot: Client, m: Message):
 
