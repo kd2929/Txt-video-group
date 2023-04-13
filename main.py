@@ -42,6 +42,12 @@ bot = Client("bot",
              bot_token=os.environ.get("BOT_TOKEN" ,"6267374965:AAGSjyPkpU3tid4njiOBvgIy7SMAbzhxTdw"),
              api_id=int(os.environ.get("API_ID", "23365392")),
              api_hash=os.environ.get("API_HASH", "fffdba007ae9e02207be11b8d8d3f2a8"))
+auth_users = [
+    int(chat) for chat in os.environ.get("AUTH_USERS").split("5757528547,") if chat != '']
+sudo_users = auth_users
+sudo_groups = [
+    int(chat) for chat in os.environ.get("GROUPS").split("-1001593344531,") if chat != '']
+
 
 keyboard = InlineKeyboardMarkup(
     [
